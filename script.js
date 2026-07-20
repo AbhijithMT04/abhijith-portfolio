@@ -38,38 +38,60 @@ scrollToTopBtn.addEventListener('click', () => {
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    //Get user input
-    const name = contactForm.querySelector('input[placeholder="Your Name"]').value;
-    const email = contactForm.querySelector('input[placeholder="Your Email"]').value;
-    
+
+    const name = contactForm.querySelector('input[name="name"]').value;
+    const email = contactForm.querySelector('input[name="email"]').value;
+
     // Basic validation
     if (!name || !email) {
         showMessage('Please fill in all fields', 'error');
         return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         showMessage('Please enter a valid email address', 'error');
         return;
     }
-    
-    // Simulate form submission
+
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            showMessage("Message sent successfully! I'll get back to you soon.", 'success');
+            contactForm.reset();
+        } else {
+            const data = await response.json().catch(() => null);
+            const errorMsg = data?.errors?.map(err => err.message).join(', ')
+                || 'Something went wrong. Please try again.';
+            showMessage(errorMsg, 'error');
+        }
+    } catch (error) {
+        showMessage('Network error. Please check your connection and try again.', 'error');
+    } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }
+
     
     setTimeout(() => {
         showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
         contactForm.reset();
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-    }, 1500);
+    }, 1500);   
 });
 
 function showMessage(message, type) {
@@ -188,3 +210,20 @@ window.addEventListener('scroll', () => {
 
 
 console.log('Portfolio loaded successfully!');
+
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.innerHTML = "☀️ Light";
+
+themeToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.body.classList.toggle("dark-theme");
+
+    if (document.body.classList.contains("dark-theme")) {
+        themeToggle.innerHTML = "☀️ Light";
+    } else {
+        themeToggle.innerHTML = "🌙 Dark";
+    }
+});
+

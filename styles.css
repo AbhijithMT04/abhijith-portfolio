@@ -4,18 +4,21 @@
     box-sizing: border-box;
 }
 
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --text-dark: #0f172a;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
-    --bg-white: #ffffff;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+:root{
+    --primary-color:#2563eb;
+    --secondary-color:#1e40af;
+    --bg-light:#f8fafc;
+    --bg-white:#ffffff;
+    --hero-bg:linear-gradient(...);
+    --footer-bg:#0f172a;
+    --card-bg:#ffffff;
+    --card-hover:#f8fafc;
+    --text-dark:#0f172a;
+    --text-light:#64748b;
+    --border-color:#e2e8f0;
+    --input-bg:#ffffff;
+    --input-border:#e2e8f0;
+    --hero-bg: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
 }
 
 html {
@@ -123,7 +126,8 @@ body {
     align-items: center;
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    background: var(--hero-bg);
+    transition: background .35s ease;
 }
 
 .hero-content {
@@ -509,11 +513,16 @@ body {
 }
 
 /* Footer */
+
+
 .footer {
-    background: var(--text-dark);
+    /* background: var(--text-dark); */
+    background:var(--footer-bg);
     color: white;
     padding: 60px 20px 20px;
 }
+
+
 
 .footer-content {
     display: grid;
@@ -720,4 +729,43 @@ body {
     .contact-method {
         flex-direction: column;
     }
+}
+
+.method-icon i{
+    font-size: 28px;
+    color: var(--text-dark);
+}
+
+.theme-btn{
+    background:transparent;
+    color:var(--text-dark);
+    border:2px solid var(--primary-color);
+    padding:8px 16px;
+    border-radius:25px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    background:var(--primary-color);
+    color:white;
+}
+
+.dark-theme{
+    --primary-color:#60a5fa;
+    --secondary-color:#3b82f6;
+
+    --text-dark:#f8fafc;
+    --text-light:#cbd5e1;
+
+    --bg-light:#0f172a;
+    --bg-white:#1e293b;
+
+    --border-color:#334155;
+
+    --footer-bg:#020617;
+
+    --hero-bg: linear-gradient(135deg, #040c1d 0%, #233146 100%);
+
 }

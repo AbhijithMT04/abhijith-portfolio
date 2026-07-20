@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhijith M T - Full-Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -21,6 +22,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" id="themeToggle" class="nav-link">🌙 Dark</a></li>
             </ul>
         </div>
     </nav>
@@ -187,45 +189,60 @@
                     
                     <div class="contact-methods">
                         <div class="contact-method">
-                            <div class="method-icon">📧</div>
+                            <div class="method-icon">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </div>
                             <div>
                                 <h4>Email</h4>
                                 <a href="abhijithmt04@gmail.com">abhijithmt04@gmail.com</a>
                             </div>
                         </div>
                         <div class="contact-method">
-                            <div class="method-icon">💼</div>
+                            <div class="method-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
                             <div>
                                 <h4>LinkedIn</h4>
                                 <a href="https://www.linkedin.com/in/abhijith-mt" target="_blank">linkedin.com/in/abhijith-mt</a>
                             </div>
                         </div>
                         <div class="contact-method">
-                            <div class="method-icon">🐙</div>
+                            <div class="method-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
                             <div>
                                 <h4>GitHub</h4>
                                 <a href="https://github.com/AbhijithMT04" target="_blank">github.com/AbhijithMT04</a>
                             </div>
                         </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fa-regular fa-file-lines"></i>
+                            </div>
+                            <div>
+                                <h4>Resume</h4>
+                                <a href="pdf/Abhijith_M_T-S-E-1.pdf" target="_blank">View Resume</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <div class="form-message" id="formMessage"></div>
-                </form>
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xdaqgvqo" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
             </div>
         </div>
     </section>
@@ -252,7 +269,7 @@
                     <ul>
                         <li><a href="https://github.com/AbhijithMT04" target="_blank">GitHub</a></li>
                         <li><a href="https://www.linkedin.com/in/abhijith-mt" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                        <li><a href="pdf/Abhijith_M_T-S-E-1.pdf" target="_blank">Resume</a></li>
                     </ul>
                 </div>
             </div>
